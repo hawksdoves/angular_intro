@@ -9,6 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
+    "protractor": "^3.2.2"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
   }
 }
