@@ -5,8 +5,24 @@ describe('Todos tracker', function() {
     expect(browser.getTitle()).toEqual('Todos App');
   });
 
-  it('displays todo1', function(){
+  it('displays todos', function(){
   	browser.get('/');
-  	expect($('p').getText()).toEqual("ToDo1");
+  	expect($$('#todos p').first().getText()).toContain("Wash car: Completed");
+  	expect($$('#todos p').last().getText()).toContain("Tidy room: Not completed");
+  });
+
+  it('adds a todo', function(){
+  	browser.get('/');
+  	$('#new-todo-name').sendKeys("NewToDo");
+	  $('#add-todo').click();
+	  var todo = $$('#todos p').last().getText();
+	  expect(todo).toEqual('NewToDo: Not completed');
+	  });
+
+  it('removes the last todo', function(){
+  	browser.get('/');
+  	$('#remove-todo').click();
+	  var todo = $$('#todos p').last().getText();
+	  expect(todo).toEqual('Wash car: Completed');
   });
 });
